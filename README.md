@@ -1,6 +1,6 @@
 # Fsm_LogViewer
 
-[![CI](https://img.shields.io/badge/CI-PHPUnit-blue)](.github/workflows/ci.yml)
+[![CI](https://github.com/fabiano-mallmann/module-log-viewer/actions/workflows/ci.yml/badge.svg)](https://github.com/fabiano-mallmann/module-log-viewer/actions/workflows/ci.yml)
 [![License: OSL-3.0](https://img.shields.io/badge/License-OSL--3.0-green.svg)](LICENSE.txt)
 [![PHP](https://img.shields.io/badge/PHP-%3E%3D8.2-777BB4.svg)](composer.json)
 
@@ -109,4 +109,4 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 
-Open Software License (OSL 3.0) and Academic Free License (AFL 3.0). See [LICENSE.txt](LICENSE.txt).
+Open Software License (OSL 3.0) and Academic Free License (AFL 3.0). See [COPYING.txt](COPYING.txt), [LICENSE.txt](LICENSE.txt), and [LICENSE_AFL.txt](LICENSE_AFL.txt).

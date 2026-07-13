@@ -1,6 +1,11 @@
 <?php
 declare(strict_types=1);
 
+/**
+ * Copyright © Fsm contributors
+ * See COPYING.txt for license details.
+ */
+
 namespace Fsm\LogViewer\Ui\Component\Listing\Column;
 
 use Fsm\LogViewer\Model\FileSizeFormatter;

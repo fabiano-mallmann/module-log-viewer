@@ -11,9 +11,11 @@
 **Do not open a public GitHub issue** for security vulnerabilities.
 
 Please report security issues privately using **GitHub Private Vulnerability Reporting**
-(Security → Advisories → Report a vulnerability) once this repository is published on GitHub.
+(Security → Advisories → Report a vulnerability) on this repository:
 
-If Private Vulnerability Reporting is not yet enabled, contact a repository maintainer
+https://github.com/fabiano-mallmann/module-log-viewer/security/advisories/new
+
+If Private Vulnerability Reporting is unavailable, contact a repository maintainer
 privately (for example via a private GitHub message). Do not include production log
 contents that contain personal data or secrets unless strictly necessary; redact them.
 

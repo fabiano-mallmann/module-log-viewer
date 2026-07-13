@@ -58,5 +58,10 @@
         "admin",
         "log",
         "log-viewer"
-    ]
+    ],
+    "homepage": "https://github.com/fabiano-mallmann/module-log-viewer",
+    "support": {
+        "source": "https://github.com/fabiano-mallmann/module-log-viewer",
+        "issues": "https://github.com/fabiano-mallmann/module-log-viewer/issues"
+    }
 }

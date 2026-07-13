@@ -1,3 +1,8 @@
+/**
+ * Copyright © Fsm contributors
+ * See COPYING.txt for license details.
+ */
+
 define([
     'jquery',
     'domReady!'

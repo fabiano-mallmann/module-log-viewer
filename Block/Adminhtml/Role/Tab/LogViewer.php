@@ -1,6 +1,11 @@
 <?php
 declare(strict_types=1);
 
+/**
+ * Copyright © Fsm contributors
+ * See COPYING.txt for license details.
+ */
+
 namespace Fsm\LogViewer\Block\Adminhtml\Role\Tab;
 
 use Fsm\LogViewer\Api\RoleRuleRepositoryInterface;
