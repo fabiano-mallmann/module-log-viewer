@@ -1,0 +1,13 @@
+{
+    "fsm_log_viewer_role": {
+        "column": {
+            "role_id": true,
+            "patterns": true,
+            "allow_download": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FSM_LOG_VIEWER_ROLE_ROLE_ID_AUTHORIZATION_ROLE_ROLE_ID": true
+        }
+    }
+}

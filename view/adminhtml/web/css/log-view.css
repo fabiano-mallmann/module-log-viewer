@@ -1,0 +1,69 @@
+.fsm-logviewer-notice {
+    margin-bottom: 1.5rem;
+}
+
+.fsm-logviewer-view .fsm-logviewer-actions {
+    margin-bottom: 1.5rem;
+}
+
+.fsm-logviewer-view .fsm-logviewer-actions__download {
+    margin-left: 1rem;
+}
+
+.fsm-logviewer-view .fsm-logviewer-search {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0 0 1rem;
+    padding: 0.75rem 1rem;
+    background: #f8f8f8;
+    border: 1px solid #e3e3e3;
+}
+
+.fsm-logviewer-view .fsm-logviewer-search__label {
+    font-weight: 600;
+    margin: 0;
+}
+
+.fsm-logviewer-view .fsm-logviewer-search__input {
+    min-width: 220px;
+    flex: 1 1 240px;
+    max-width: 420px;
+    height: 3.2rem;
+    padding: 0 1rem;
+    border: 1px solid #adadad;
+    background: #fff;
+}
+
+.fsm-logviewer-view .fsm-logviewer-search__count {
+    color: #666;
+    min-width: 7rem;
+}
+
+.fsm-logviewer-view .fsm-logviewer-search__actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.fsm-logviewer-view .fsm-logviewer-content {
+    max-height: 70vh;
+    overflow: auto;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 1rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
+}
+
+.fsm-logviewer-view .fsm-logviewer-hit {
+    background: #d7a100;
+    color: #111;
+    padding: 0 0.1em;
+}
+
+.fsm-logviewer-view .fsm-logviewer-hit.is-current {
+    background: #ff6d00;
+    outline: 1px solid #fff;
+}

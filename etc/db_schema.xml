@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="fsm_log_viewer_role" resource="default" engine="innodb"
+           comment="Log Viewer rules per admin role">
+        <column xsi:type="int" name="role_id" unsigned="true" nullable="false"
+                identity="false" comment="Admin Role ID"/>
+        <column xsi:type="text" name="patterns" nullable="true"
+                comment="Allowed log filename patterns (one glob per line)"/>
+        <column xsi:type="smallint" name="allow_download" unsigned="true" nullable="false"
+                default="0" comment="Allow download of matched logs"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="role_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="FSM_LOG_VIEWER_ROLE_ROLE_ID_AUTHORIZATION_ROLE_ROLE_ID"
+                    table="fsm_log_viewer_role" column="role_id"
+                    referenceTable="authorization_role" referenceColumn="role_id"
+                    onDelete="CASCADE"/>
+    </table>
+</schema>

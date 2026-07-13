@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="adminhtml.user.editroles">
+            <block class="Fsm\LogViewer\Block\Adminhtml\Role\Tab\LogViewer"
+                   name="fsm.logviewer.role.tab"/>
+            <action method="addTabAfter">
+                <argument name="name" xsi:type="string">logviewer</argument>
+                <argument name="block" xsi:type="string">fsm.logviewer.role.tab</argument>
+                <argument name="after" xsi:type="string">account</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

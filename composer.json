@@ -1,0 +1,38 @@
+{
+    "name": "fsm/module-log-viewer",
+    "description": "Magento / Mage-OS admin Log Viewer with per-role glob patterns and download ACL.",
+    "type": "magento2-module",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "require": {
+        "php": ">=8.2",
+        "magento/framework": "*",
+        "magento/module-backend": "*",
+        "magento/module-user": "*",
+        "magento/module-authorization": "*",
+        "magento/module-ui": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Fsm\\LogViewer\\": ""
+        }
+    },
+    "keywords": [
+        "magento",
+        "magento2",
+        "mage-os",
+        "admin",
+        "log",
+        "log-viewer"
+    ],
+    "homepage": "https://github.com/fabiano-mallmann/module-log-viewer",
+    "support": {
+        "source": "https://github.com/fabiano-mallmann/module-log-viewer",
+        "issues": "https://github.com/fabiano-mallmann/module-log-viewer/issues"
+    }
+}

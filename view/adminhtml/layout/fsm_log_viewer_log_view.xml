@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Fsm_LogViewer::css/log-view.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Backend\Block\Template"
+                   name="fsm.logviewer.view"
+                   template="Fsm_LogViewer::log/view.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Fsm\LogViewer\ViewModel\LogView</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

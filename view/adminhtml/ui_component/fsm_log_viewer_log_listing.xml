@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">fsm_log_viewer_log_listing.fsm_log_viewer_log_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>fsm_log_viewer_log_columns</spinner>
+        <deps>
+            <dep>fsm_log_viewer_log_listing.fsm_log_viewer_log_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="fsm_log_viewer_log_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">name</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Fsm_LogViewer::view</aclResource>
+        <dataProvider class="Fsm\LogViewer\Ui\DataProvider\LogListingDataProvider"
+                      name="fsm_log_viewer_log_listing_data_source">
+            <settings>
+                <requestFieldName>name</requestFieldName>
+                <primaryFieldName>name</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="fsm_log_viewer_log_columns">
+        <settings>
+            <childDefaults>
+                <param name="fieldAction" xsi:type="array">
+                    <item name="provider" xsi:type="string">fsm_log_viewer_log_listing.fsm_log_viewer_log_listing.fsm_log_viewer_log_columns.actions</item>
+                    <item name="target" xsi:type="string">applyAction</item>
+                    <item name="params" xsi:type="array">
+                        <item name="0" xsi:type="string">view</item>
+                        <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
+                    </item>
+                </param>
+            </childDefaults>
+        </settings>
+        <column name="name">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">File</label>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <column name="size" class="Fsm\LogViewer\Ui\Component\Listing\Column\Size">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Size</label>
+            </settings>
+        </column>
+        <column name="mtime" class="Magento\Ui\Component\Listing\Columns\Date"
+                component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Modified</label>
+                <dateFormat>MMM d, y h:mm:ss a</dateFormat>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Fsm\LogViewer\Ui\Component\Listing\Column\Actions">
+            <settings>
+                <indexField>name</indexField>
+                <resizeEnabled>false</resizeEnabled>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>
