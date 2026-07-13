@@ -1,0 +1,18 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Fsm\LogViewer\ViewModel\PatternsNotice $viewModel
+ */
+$viewModel = $block->getData('view_model');
+?>
+<?php if ($viewModel->hasPatterns()): ?>
+    <div class="message message-notice fsm-logviewer-notice">
+        <?= $block->escapeHtml(__('Allowed patterns for your role: %1', $viewModel->getPatternsHint())) ?>
+    </div>
+<?php else: ?>
+    <div class="message message-warning fsm-logviewer-notice">
+        <?= $block->escapeHtml(__(
+            'No log patterns are configured for your role. Ask an administrator to set patterns under System → Permissions → User Roles → Log Viewer.'
+        )) ?>
+    </div>
+<?php endif; ?>

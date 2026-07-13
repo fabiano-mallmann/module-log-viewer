@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: Composer validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          coverage: none
+
+      - name: Validate composer.json
+        run: composer validate
+
+  unit-test:
+    name: Unit tests (PHP ${{ matrix.php_version }})
+    needs: validate
+    strategy:
+      fail-fast: false
+      matrix:
+        php_version:
+          - "8.2"
+          - "8.3"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: mage-os/github-actions/unit-test@main
+        with:
+          php_version: ${{ matrix.php_version }}
+          test_command: composer run test

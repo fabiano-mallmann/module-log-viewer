@@ -1,0 +1,38 @@
+<?php
+/**
+ * @var \Fsm\LogViewer\Block\Adminhtml\Role\Tab\LogViewer $block
+ */
+$patternsField = $block->getPatternsFieldName();
+$downloadField = $block->getAllowDownloadFieldName();
+?>
+<fieldset class="admin__fieldset">
+    <div class="admin__field">
+        <label class="admin__field-label" for="<?= $block->escapeHtmlAttr($patternsField) ?>">
+            <span><?= $block->escapeHtml(__('Allowed Log Patterns')) ?></span>
+        </label>
+        <div class="admin__field-control">
+            <textarea id="<?= $block->escapeHtmlAttr($patternsField) ?>"
+                      name="<?= $block->escapeHtmlAttr($patternsField) ?>"
+                      class="admin__control-textarea"
+                      rows="6"
+                      placeholder="system.log&#10;exception.log"><?= $block->escapeHtml($block->getPatterns()) ?></textarea>
+            <div class="admin__field-note">
+                <span><?= $block->escapeHtml(__(
+                    'One glob pattern per line matching the log basename under var/log. Empty = no files. Prefer specific files (system.log, exception.log) over *.log — logs may contain personal data or secrets.'
+                )) ?></span>
+            </div>
+        </div>
+    </div>
+    <div class="admin__field admin__field-option">
+        <input type="hidden" name="<?= $block->escapeHtmlAttr($downloadField) ?>" value="0"/>
+        <input type="checkbox"
+               id="<?= $block->escapeHtmlAttr($downloadField) ?>"
+               name="<?= $block->escapeHtmlAttr($downloadField) ?>"
+               value="1"
+               class="admin__control-checkbox"
+            <?= $block->getAllowDownload() ? 'checked="checked"' : '' ?>/>
+        <label class="admin__field-label" for="<?= $block->escapeHtmlAttr($downloadField) ?>">
+            <span><?= $block->escapeHtml(__('Allow Download')) ?></span>
+        </label>
+    </div>
+</fieldset>

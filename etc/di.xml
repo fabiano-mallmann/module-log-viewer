@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Fsm\LogViewer\Api\Data\RoleRuleInterface"
+                type="Fsm\LogViewer\Model\RoleRule"/>
+    <preference for="Fsm\LogViewer\Api\RoleRuleRepositoryInterface"
+                type="Fsm\LogViewer\Model\RoleRuleRepository"/>
+    <preference for="Fsm\LogViewer\Api\LogFileServiceInterface"
+                type="Fsm\LogViewer\Model\LogFileService"/>
+
+    <type name="Magento\Authorization\Model\Role">
+        <plugin name="fsm_log_viewer_role_save"
+                type="Fsm\LogViewer\Plugin\Authorization\RoleSavePlugin"
+                sortOrder="100"/>
+    </type>
+</config>

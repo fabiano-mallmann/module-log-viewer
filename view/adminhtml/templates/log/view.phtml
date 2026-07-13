@@ -1,0 +1,68 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Fsm\LogViewer\ViewModel\LogView $viewModel
+ */
+$viewModel = $block->getData('view_model');
+$payload = $viewModel->getPayload();
+?>
+<div class="fsm-logviewer-view">
+    <div class="page-actions fsm-logviewer-actions">
+        <a class="action-default" href="<?= $block->escapeUrl($viewModel->getBackUrl()) ?>">
+            <?= $block->escapeHtml(__('Back to Log List')) ?>
+        </a>
+        <?php if ($payload && $viewModel->canDownload()): ?>
+            <a class="action-secondary fsm-logviewer-actions__download"
+               href="<?= $block->escapeUrl($viewModel->getDownloadUrl()) ?>">
+                <?= $block->escapeHtml(__('Download')) ?>
+            </a>
+        <?php endif; ?>
+    </div>
+
+    <?php if (!$payload): ?>
+        <div class="message message-error">
+            <?= $block->escapeHtml(__('Unable to load this log file.')) ?>
+        </div>
+    <?php else: ?>
+        <?php if ($payload['truncated']): ?>
+            <div class="message message-notice">
+                <?= $block->escapeHtml(__(
+                    'Showing the last portion of the file (%1 total). Download the full file if allowed.',
+                    $viewModel->formatSize($payload['size'])
+                )) ?>
+            </div>
+        <?php endif; ?>
+
+        <div id="fsm-logviewer-search-root"
+             class="fsm-logviewer-search-root"
+             data-mage-init='{"Fsm_LogViewer/js/log-search":<?= /* @noEscape */ json_encode([
+                 'noMatches' => (string)__('No matches'),
+                 'ofLabel' => (string)__('%1 of %2'),
+             ], JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT) ?>}'>
+            <div class="fsm-logviewer-search">
+                <label class="fsm-logviewer-search__label" for="fsm-logviewer-search-input">
+                    <?= $block->escapeHtml(__('Search')) ?>
+                </label>
+                <input type="search"
+                       id="fsm-logviewer-search-input"
+                       class="fsm-logviewer-search__input admin__control-text"
+                       data-role="log-search-input"
+                       placeholder="<?= $block->escapeHtmlAttr(__('Find in log…')) ?>"
+                       autocomplete="off"/>
+                <span class="fsm-logviewer-search__count" data-role="log-search-count"></span>
+                <div class="fsm-logviewer-search__actions">
+                    <button type="button" class="action-secondary" data-role="log-search-prev" disabled="disabled">
+                        <?= $block->escapeHtml(__('Previous')) ?>
+                    </button>
+                    <button type="button" class="action-secondary" data-role="log-search-next" disabled="disabled">
+                        <?= $block->escapeHtml(__('Next')) ?>
+                    </button>
+                    <button type="button" class="action-secondary" data-role="log-search-clear">
+                        <?= $block->escapeHtml(__('Clear')) ?>
+                    </button>
+                </div>
+            </div>
+            <pre class="fsm-logviewer-content" data-role="log-content"><?= $block->escapeHtml($payload['content']) ?></pre>
+        </div>
+    <?php endif; ?>
+</div>
